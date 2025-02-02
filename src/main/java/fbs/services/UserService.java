@@ -54,7 +54,7 @@ public class UserService {
     public UserResponseDTO readById(UUID id) {
 
         User user = userR.findById(id)
-            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado."));
+            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not Found."));
         
         return new UserResponseDTO(
             user.getId(),            
@@ -66,7 +66,7 @@ public class UserService {
     public void update(UUID id, Map<String, Object> fields) {
 
         User user = userR.findById(id)
-            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not Found"));
+            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not Found."));
 
         PasswordValidator passwordValidator = new PasswordValidator();
 
